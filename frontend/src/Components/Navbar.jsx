@@ -1,7 +1,10 @@
 function Navbar() {
   return (
-    <nav className="nav_container">
-      <a className="nav_logo" href="#top">
+    <nav className="sticky top-0 z-100 flex h-16 w-full max-w-[1100px] items-center justify-between gap-6 bg-white px-6 min-[900px]:px-0">
+      <a
+        className="inline-flex items-center gap-2 text-[1.0625rem] font-semibold tracking-[-0.03em]"
+        href="#top"
+      >
         <svg width="22" height="22" viewBox="0 0 22 22" aria-hidden="true">
           <rect x="0.5" y="0.5" width="21" height="21" rx="6" fill="#101114" />
           <path
@@ -19,21 +22,47 @@ function Navbar() {
             strokeLinecap="round"
           />
         </svg>
-        <h3>Keel</h3>
+        <span>Keel</span>
       </a>
 
-      <div className="nav_category">
-        <a href="#features">Product</a>
-        <a href="#testimonials">Customers</a>
-        <a href="#pricing">Pricing</a>
-        <a href="#faq">FAQ</a>
+      <div className="hidden items-center gap-1 min-[900px]:flex">
+        <a
+          href="#features"
+          className="rounded-lg px-3.5 py-2 text-sm text-soft transition-colors duration-160 hover:bg-surface hover:text-ink"
+        >
+          Product
+        </a>
+        <a
+          href="#testimonials"
+          className="rounded-lg px-3.5 py-2 text-sm text-soft transition-colors duration-160 hover:bg-surface hover:text-ink"
+        >
+          Customers
+        </a>
+        <a
+          href="#pricing"
+          className="rounded-lg px-3.5 py-2 text-sm text-soft transition-colors duration-160 hover:bg-surface hover:text-ink"
+        >
+          Pricing
+        </a>
+        <a
+          href="#faq"
+          className="rounded-lg px-3.5 py-2 text-sm text-soft transition-colors duration-160 hover:bg-surface hover:text-ink"
+        >
+          FAQ
+        </a>
       </div>
 
-      <div className="nav_btns">
-        <a className="nav_signin-btn" href="#signin">
+      <div className="flex items-center gap-4">
+        <a
+          className="cursor-pointer text-sm text-soft hover:text-ink"
+          href="#signin"
+        >
           Sign in
         </a>
-        <button type="button" className="nav_start-btn">
+        <button
+          type="button"
+          className="h-8 cursor-pointer rounded-[10px] border-0 bg-ink px-3.5 text-sm font-medium text-paper transition-[background-color,transform] duration-160 ease-[cubic-bezier(0.16,1,0.3,1)] hover:scale-[1.02] hover:bg-ink-hover active:scale-[0.985]"
+        >
           Start free
         </button>
       </div>

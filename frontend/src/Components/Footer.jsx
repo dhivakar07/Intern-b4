@@ -1,8 +1,9 @@
 import { useState } from "react";
+import { btn, btnSecondary, monoLabel } from "../lib/styles";
 
 function Footer() {
   const [status, setStatus] = useState(
-    "One email a month. Unsubscribe in one click."
+    "One email a month. Unsubscribe in one click.",
   );
   const [done, setDone] = useState(false);
 
@@ -12,12 +13,18 @@ function Footer() {
     setDone(true);
   };
 
+  const linkClass =
+    "text-sm text-soft transition-colors hover:text-accent";
+
   return (
-    <footer className="footer">
-      <div className="container">
-        <div className="footer-top">
-          <div className="footer-brand">
-            <a className="footer-logo" href="#top">
+    <footer className="w-full border-t border-line bg-surface px-6 pt-20 pb-10 lg:px-0 lg:pt-20 lg:pb-10">
+      <div className="mx-auto w-full max-w-[1100px]">
+        <div className="grid gap-16 border-b border-line-strong pb-16 lg:grid-cols-[1fr_1.35fr] lg:gap-20">
+          <div className="grid content-start gap-6">
+            <a
+              className="inline-flex items-center gap-2 text-[1.0625rem] font-semibold tracking-[-0.03em] text-ink"
+              href="#top"
+            >
               <svg width="22" height="22" viewBox="0 0 22 22" aria-hidden="true">
                 <rect
                   x="0.5"
@@ -45,13 +52,15 @@ function Footer() {
               Keel
             </a>
 
-            <p className="tagline">
+            <p className="max-w-[30ch] text-sm text-muted">
               Planning, delivery and release notes in one place.
             </p>
 
-            <form className="newsletter" onSubmit={onSubscribe}>
-              <label htmlFor="n-email">What we shipped, once a month</label>
-              <div className="controls">
+            <form className="grid max-w-[360px] gap-2" onSubmit={onSubscribe}>
+              <label htmlFor="n-email" className="text-sm font-medium">
+                What we shipped, once a month
+              </label>
+              <div className="flex gap-2">
                 <input
                   id="n-email"
                   name="email"
@@ -59,115 +68,163 @@ function Footer() {
                   placeholder="you@company.com"
                   autoComplete="email"
                   required
+                  className="h-10 min-w-0 flex-1 rounded-[10px] border border-line-strong bg-white px-4 text-sm text-ink focus:border-accent focus:shadow-[0_0_0_3px_#e9f0ee] focus:outline-none"
                 />
-                <button className="btn btn--secondary" type="submit">
+                <button className={`${btn} ${btnSecondary}`} type="submit">
                   Subscribe
                 </button>
               </div>
               <div
                 aria-live="polite"
-                className="status"
-                data-done={done || undefined}
+                className={`min-h-5 text-xs ${done ? "text-accent" : "text-muted"}`}
               >
                 {status}
               </div>
             </form>
           </div>
 
-          <nav className="footer-nav" aria-label="Footer">
+          <nav
+            className="grid grid-cols-2 gap-x-6 gap-y-10 min-[720px]:grid-cols-4"
+            aria-label="Footer"
+          >
             <div>
-              <h2 className="mono-label">Product</h2>
-              <ul>
+              <h2 className={`${monoLabel} mb-4 font-medium`}>Product</h2>
+              <ul className="grid gap-2">
                 <li>
-                  <a href="#features">Cycle planning</a>
+                  <a className={linkClass} href="#features">
+                    Cycle planning
+                  </a>
                 </li>
                 <li>
-                  <a href="#features">Release notes</a>
+                  <a className={linkClass} href="#features">
+                    Release notes
+                  </a>
                 </li>
                 <li>
-                  <a href="#features">Insights</a>
+                  <a className={linkClass} href="#features">
+                    Insights
+                  </a>
                 </li>
                 <li>
-                  <a href="#features">Integrations</a>
+                  <a className={linkClass} href="#features">
+                    Integrations
+                  </a>
                 </li>
                 <li>
-                  <a href="#">Changelog</a>
+                  <a className={linkClass} href="#">
+                    Changelog
+                  </a>
                 </li>
               </ul>
             </div>
 
             <div>
-              <h2 className="mono-label">Company</h2>
-              <ul>
+              <h2 className={`${monoLabel} mb-4 font-medium`}>Company</h2>
+              <ul className="grid gap-2">
                 <li>
-                  <a href="#">About</a>
+                  <a className={linkClass} href="#">
+                    About
+                  </a>
                 </li>
                 <li>
-                  <a href="#testimonials">Customers</a>
+                  <a className={linkClass} href="#testimonials">
+                    Customers
+                  </a>
                 </li>
                 <li>
-                  <a href="#">Careers</a>
+                  <a className={linkClass} href="#">
+                    Careers
+                  </a>
                 </li>
                 <li>
-                  <a href="#">Blog</a>
+                  <a className={linkClass} href="#">
+                    Blog
+                  </a>
                 </li>
                 <li>
-                  <a href="#contact">Contact</a>
-                </li>
-              </ul>
-            </div>
-
-            <div>
-              <h2 className="mono-label">Resources</h2>
-              <ul>
-                <li>
-                  <a href="#">Documentation</a>
-                </li>
-                <li>
-                  <a href="#">API reference</a>
-                </li>
-                <li>
-                  <a href="#">Migration guide</a>
-                </li>
-                <li>
-                  <a href="#">Status</a>
-                </li>
-                <li>
-                  <a href="#">Security</a>
+                  <a className={linkClass} href="#contact">
+                    Contact
+                  </a>
                 </li>
               </ul>
             </div>
 
             <div>
-              <h2 className="mono-label">Legal</h2>
-              <ul>
+              <h2 className={`${monoLabel} mb-4 font-medium`}>Resources</h2>
+              <ul className="grid gap-2">
                 <li>
-                  <a href="#">Terms</a>
+                  <a className={linkClass} href="#">
+                    Documentation
+                  </a>
                 </li>
                 <li>
-                  <a href="#">Privacy</a>
+                  <a className={linkClass} href="#">
+                    API reference
+                  </a>
                 </li>
                 <li>
-                  <a href="#">Subprocessors</a>
+                  <a className={linkClass} href="#">
+                    Migration guide
+                  </a>
                 </li>
                 <li>
-                  <a href="#">DPA</a>
+                  <a className={linkClass} href="#">
+                    Status
+                  </a>
+                </li>
+                <li>
+                  <a className={linkClass} href="#">
+                    Security
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h2 className={`${monoLabel} mb-4 font-medium`}>Legal</h2>
+              <ul className="grid gap-2">
+                <li>
+                  <a className={linkClass} href="#">
+                    Terms
+                  </a>
+                </li>
+                <li>
+                  <a className={linkClass} href="#">
+                    Privacy
+                  </a>
+                </li>
+                <li>
+                  <a className={linkClass} href="#">
+                    Subprocessors
+                  </a>
+                </li>
+                <li>
+                  <a className={linkClass} href="#">
+                    DPA
+                  </a>
                 </li>
               </ul>
             </div>
           </nav>
         </div>
 
-        <div className="footer-bottom">
+        <div className="flex flex-wrap items-center gap-x-6 gap-y-4 pt-8 text-xs text-muted">
           <p>© 2026 Keel Software, Inc. All rights reserved.</p>
-          <p>
-            <span className="status-dot" aria-hidden="true" />
+          <p className="flex items-center">
+            <span
+              className="mr-1.5 inline-block size-1.5 rounded-full bg-accent"
+              aria-hidden="true"
+            />
             All systems operational
           </p>
 
-          <ul className="socials">
+          <ul className="ml-auto flex gap-2">
             <li>
-              <a href="#" aria-label="Keel on X">
+              <a
+                href="#"
+                aria-label="Keel on X"
+                className="inline-flex size-8 items-center justify-center rounded-[10px] border border-transparent text-muted transition-all duration-160 hover:border-line-strong hover:bg-white hover:text-ink"
+              >
                 <svg
                   width="18"
                   height="18"
@@ -180,7 +237,11 @@ function Footer() {
               </a>
             </li>
             <li>
-              <a href="#" aria-label="Keel on GitHub">
+              <a
+                href="#"
+                aria-label="Keel on GitHub"
+                className="inline-flex size-8 items-center justify-center rounded-[10px] border border-transparent text-muted transition-all duration-160 hover:border-line-strong hover:bg-white hover:text-ink"
+              >
                 <svg
                   width="18"
                   height="18"
@@ -193,7 +254,11 @@ function Footer() {
               </a>
             </li>
             <li>
-              <a href="#" aria-label="Keel on LinkedIn">
+              <a
+                href="#"
+                aria-label="Keel on LinkedIn"
+                className="inline-flex size-8 items-center justify-center rounded-[10px] border border-transparent text-muted transition-all duration-160 hover:border-line-strong hover:bg-white hover:text-ink"
+              >
                 <svg
                   width="18"
                   height="18"
