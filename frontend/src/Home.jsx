@@ -1,6 +1,8 @@
 import Features from "./Components/Features"
+import Contact from "./Components/Contact"
 import Navbar from "./Components/Navbar"
 import Testimonial from "./Components/Testimonial"
+import Questions from "./Components/Questions"
 
 function Home(){
     return(
@@ -8,6 +10,8 @@ function Home(){
         <Navbar/>
         <Features/>
         <Testimonial/>
+        <Questions/>
+        <Contact/>
         </>
     )
 }
